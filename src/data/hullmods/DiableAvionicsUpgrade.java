@@ -143,21 +143,4 @@ public class DiableAvionicsUpgrade extends BaseHullMod {
             ship.getEngineController().fadeToOtherColor(this, ENGINE_COLOR, new Color(0, 0, 0, 0), engineEffectLevel, 0.33f);
         }
     }
-
-    public DiableAvionicsUpgrade() {
-        for (ImportantPeopleAPI.PersonDataAPI personData : Global.getSector().getImportantPeople().getPeopleCopy()) {
-            PersonAPI person = personData.getPerson();
-            if (person.getMemoryWithoutUpdate().contains("$coff_isprisoner")) {
-                for (String memory : person.getMemory().getKeys())  {
-                    person.getMemory().unset(memory);
-                }
-
-                for (ImportantPeopleAPI.PersonDataAPI personData2 : Global.getSector().getImportantPeople().getPeopleCopy()) {
-                    for (String memory : personData2.getPerson().getMemory().getKeys())  {
-                        personData2.getPerson().getMemory().unset(memory);
-                    }
-                }
-            }
-        }
-    }
 }
